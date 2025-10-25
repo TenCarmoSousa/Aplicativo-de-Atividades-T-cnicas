@@ -1,0 +1,380 @@
+/* Reset básico e fontes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+    padding-bottom: 50px;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #004a91; /* Um tom de azul escuro, militar/governo */
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 5px;
+    font-size: 1.8rem;
+}
+
+header .developer {
+    font-size: 0.9rem;
+    font-style: italic;
+    font-weight: 300;
+    color: #e0e0e0;
+    margin-top: 5px;
+}
+
+/* --- ESTILO: NAVEGAÇÃO POR ABAS --- */
+.container-abas {
+    display: flex;
+    background-color: #e9ecef;
+    max-width: 800px; /* Mesma largura do main */
+    margin: 0 auto; /* Centraliza */
+}
+
+.aba {
+    flex-grow: 1; /* Faz as abas ocuparem o espaço igualmente (funciona para 2 ou 3) */
+    padding: 15px 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    background-color: #e9ecef;
+    color: #004a91;
+    border-bottom: 3px solid transparent;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.aba:hover {
+    background-color: #f8f9fa;
+}
+
+.aba.active {
+    /* Aba ativa tem a cor de fundo do conteúdo e uma borda */
+    background-color: #ffffff;
+    border-bottom: 3px solid #004a91;
+    color: #333;
+}
+/* ------------------------------------- */
+
+/* Contêiner Principal */
+main {
+    max-width: 800px;
+    margin: 0 auto; /* Removido o margin-top */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 0 0 8px 8px; /* Arredonda só embaixo */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* --- ESTILO: CONTROLE DE VISIBILIDADE DAS ABAS --- */
+.aba-conteudo {
+    display: none; /* Todas as abas começam escondidas */
+}
+
+.aba-conteudo.active {
+    display: block; /* A aba ativa é mostrada */
+}
+/* --------------------------------------------------- */
+
+
+/* Seções do Formulário */
+section {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+section h2 {
+    font-size: 1.3rem;
+    color: #004a91;
+    margin-bottom: 15px;
+}
+
+/* Grupos de Formulário */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+/* Inputs, Selects */
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Layout em Grade para inputs lado a lado */
+.form-group-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* Checkboxes */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 10px;
+    width: 18px; 
+    height: 18px;
+}
+
+/* Botão de Análise */
+#btn-analisar {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #28a745; /* Verde para "ação" */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#btn-analisar:hover {
+    background-color: #218838;
+}
+
+/* Container do Resultado (Analisador) */
+#resultado-container {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: left; /* Alinha o texto à esquerda para a lista */
+    border: 2px solid;
+}
+
+#resultado-container h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#resultado-texto {
+    text-align: center;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+
+/* Estilos dinâmicos (Analisador) */
+.resultado-processo-tecnico {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+.resultado-simplificado {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.resultado-evento {
+    background-color: #cce5ff;
+    border-color: #b8daff;
+    color: #004085;
+}
+
+/* Estilo para Lista de Documentos */
+#resultado-documentos {
+    margin-top: 15px;
+}
+
+#resultado-documentos h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+#resultado-documentos ul {
+    list-style-position: inside;
+    padding-left: 10px;
+}
+
+#resultado-documentos ul li {
+    margin-bottom: 8px;
+}
+
+#resultado-documentos ul ul {
+    list-style-type: circle; /* Sub-itens */
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+/* --- ESTILOS: CALCULADORA DE TAXA --- */
+
+/* Botão de Calcular */
+#btn-calcular-taxa {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #007bff; /* Azul para "calcular" */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#btn-calcular-taxa:hover {
+    background-color: #0056b3;
+}
+
+/* Container do Resultado da Taxa */
+#resultado-taxa-container {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+}
+
+#resultado-taxa-container h3 {
+    color: #333;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+#resultado-taxa-valor {
+    color: #004a91;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+/* ------------------------------------------ */
+
+
+/* Media Query para telas menores (celular) */
+@media (max-width: 600px) {
+    .form-group-grid {
+        grid-template-columns: 1fr; /* Coloca os inputs um embaixo do outro */
+    }
+
+    /* Ajusta as abas no celular */
+    .aba {
+        font-size: 0.8rem; /* Reduzido um pouco mais para 3 abas */
+        padding: 12px 5px;
+    }
+    
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* --- NOVOS ESTILOS: ABA DE INFORMAÇÕES (ACORDEÃO E BOTÃO COPIAR) --- */
+
+.accordion-item {
+    margin-bottom: 10px;
+}
+
+.accordion-title {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #004a91;
+    background-color: #f1f1f1;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 5px;
+}
+
+.accordion-title:hover {
+    background-color: #e0e0e0;
+}
+
+.accordion-title.active {
+    background-color: #ddd;
+}
+
+/* Adiciona um símbolo de '+' que muda para '-' */
+.accordion-title::after {
+    content: '+';
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.accordion-title.active::after {
+    content: "−";
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+}
+
+/* Classe 'active' que será alternada pelo JS */
+.accordion-content.active {
+    padding: 15px;
+    max-height: 500px; /* Altura suficiente para o conteúdo */
+}
+
+/* Limpa o float do botão copiar */
+.accordion-content::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.accordion-content ul {
+    list-style-position: inside;
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+.accordion-content a {
+    color: #007bff;
+    word-break: break-all; /* Quebra o link em telas pequenas */
+}
+
+.btn-copiar {
+    float: right;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+.btn-copiar:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisador de Processos - Atividades Técnicas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Analisador de Processos de Segurança Contra Incêndio</h1>
+        <p>Ferramenta de auxílio para Atividades Técnicas</p>
+        <p class="developer">Desenvolvido por Ten Carmo Sousa</p>
+    </header>
+
+    <nav class="container-abas">
+        <button id="btn-aba-analisador" class="aba active">
+            Analisar Processo
+        </button>
+        <button id="btn-aba-calculadora" class="aba">
+            Calcular Taxa
+        </button>
+        <button id="btn-aba-info" class="aba">
+            NT's e Informações para copiar
+        </button>
+    </nav>
+    <main>
+        
+        <div id="aba-analisador" class="aba-conteudo active">
+            <form id="form-analise">
+                <section>
+                    <h2>Seção 1: Natureza da Regularização</h2>
+                    <div class="form-group">
+                        <label for="evento-temporario">A regularização é para um Evento Temporário?</label>
+                        <select id="evento-temporario" name="evento-temporario">
+                            <option value="nao">Não (Edificação Permanente)</option>
+                            <option value="sim">Sim (Show, circo, feira, etc.)</option>
+                        </select>
+                    </div>
+                </section>
+
+                <section id="secao-permanente">
+                    <h2>Seção 2: Características da Atividade</h2>
+                    <div class="form-group">
+                        <label for="tipo-atividade">Qual o tipo de atividade exercida no local?</label>
+                        <select id="tipo-atividade" name="tipo-atividade">
+                            <option value="outro">Outro tipo (Comercial, Industrial, etc.)</option>
+                            <option value="residencia-mei">Atividade em residência (MEI), sem recepção de pessoas.</option>
+                            <option value="sem-estabelecimento">Empresa sem estabelecimento físico (só domicílio fiscal).</option>
+                        </select>
+                    </div>
+
+                    <h2>Seção 3: Características da Edificação</h2>
+                    <div class="form-group-grid">
+                        <div class="form-group">
+                            <label for="area-total">Área total construída (m²):</label>
+                            <input type="number" id="area-total" name="area-total" placeholder="ex: 700">
+                        </div>
+                        <div class="form-group">
+                            <label for="altura">Altura da edificação (m):</label>
+                            <input type="number" id="altura" name="altura" placeholder="ex: 9">
+                        </div>
+                        <div class="form-group">
+                            <label for="pavimentos">Nº de pavimentos:</label>
+                            <input type="number" id="pavimentos" name="pavimentos" placeholder="ex: 2">
+                        </div>
+                        <div class="form-group">
+                            <label for="lotacao">Lotação máxima (pessoas):</label>
+                            <input type="number" id="lotacao" name="lotacao" placeholder="ex: 150">
+                        </div>
+                    </div>
+
+                    <h2>Seção 4: Ocupação e Uso (Exclusões)</h2>
+                    <div class="form-group">
+                        <label>A edificação se enquadra em algum dos usos abaixo?</label>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="uso-f11" name="uso-f11">
+                            <label for="uso-f11">Reunião de público (Divisão F-11, boates, etc.)</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="uso-hotel" name="uso-hotel">
+                            <label for="uso-hotel">Hotel, pousada, pensão ou similar</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="uso-hospital" name="uso-hospital">
+                            <label for="uso-hospital">Hospital ou local com pacientes que necessitam de cuidados</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="uso-asilo" name="uso-asilo">
+                            <label for="uso-asilo">Asilo, creche, pré-escola ou similar (idosos, crianças)</label>
+                        </div>
+                    </div>
+                    <div class="form-group" id="grupo-leitos" style="display: none;">
+                        <label for="n-leitos">Se for Hotel/Pousada, qual o nº de leitos?</label>
+                        <input type="number" id="n-leitos" name="n-leitos" placeholder="0">
+                    </div>
+
+                    <h2>Seção 5: Armazenamento e Risco Específico</h2>
+                    <div class="form-group-grid">
+                        <div class="form-group">
+                            <label for="liquido-inflamavel">Líquido Inflamável (Litros):</label>
+                            <input type="number" id="liquido-inflamavel" name="liquido-inflamavel" placeholder="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="glp">Gás Liquefeito de Petróleo (kg):</label>
+                            <input type="number" id="glp" name="glp" placeholder="0">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="revenda-glp" name="revenda-glp">
+                            <label for="revenda-glp">É uma Revenda de GLP?</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="outros-gases" name="outros-gases">
+                            <label for="outros-gases">Possui outros tipos de Gases Combustíveis?</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="produtos-perigosos" name="produtos-perigosos">
+                            <label for="produtos-perigosos">Possui Produtos Perigosos (tóxicos, explosivos, etc.)?</label>
+                        </div>
+                    </div>
+
+                    <h2>Seção 6: Critérios Técnicos Adicionais</h2>
+                    <div class="form-group">
+                        <label>Marque "Sim" se algum dos critérios abaixo se aplicar:</label>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="subsolo-distinto" name="subsolo-distinto">
+                            <label for="subsolo-distinto">Subsolo com uso distinto de estacionamento</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="carga-incendio" name="carga-incendio">
+                            <label for="carga-incendio">Carga de incêndio superior a 1.200 MJ/m²</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="sistemas-fixos" name="sistemas-fixos">
+                            <label for="sistemas-fixos">Necessita de sistemas fixos (Hidrantes, Sprinklers, Alarme)</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="isolamento" name="isolamento">
+                            <label for="isolamento">Necessita de comprovação de isolamento de risco</label>
+                        </div>
+                    </div>
+                </section>
+
+                <button type="button" id="btn-analisar">Analisar Processo</button>
+                <div id="resultado-container" style="display: none;">
+                    <h2>Resultado da Análise</h2>
+                    <h3 id="resultado-texto"></h3>
+                    <div id="resultado-documentos"></div>
+                </div>
+            </form>
+        </div>
+        <div id="aba-calculadora" class="aba-conteudo">
+            <form id="form-calculo">
+                <section>
+                    <h2>Calculadora de Taxas</h2>
+                    
+                    <div class="form-group">
+                        <label for="tipo-taxa">Selecione o Tipo de Taxa</label>
+                        <select id="tipo-taxa">
+                            <option value="" selected disabled>-- Escolha uma opção --</option>
+                            <option value="evento">1. Evento Temporário</option>
+                            <option value="ca-maior-750">2. Primeiro CA (> 750 m²)</option>
+                            <option value="ca-menor-750">3. Primeiro CA (< 750 m²)</option>
+                            <option value="renovacao-maior-750">4. Renovação CA (> 750 m²)</option>
+                            <option value="renovacao-menor-750">5. Renovação CA (< 750 m²)</option>
+                            <option value="cap-maior-750">6. Emissão CAP (> 750 m²)</option>
+                            <option value="cap-menor-750">7. Emissão CAP (< 750 m²)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="div-vbbm">
+                        <label for="vbbm">VBBM (Valor Básico Bombeiro Militar)</label>
+                        <input type="number" id="vbbm" placeholder="Insira o valor base em R$">
+                    </div>
+                    
+                    <div class="form-group" id="div-area-taxa" style="display: none;">
+                        <label for="area-taxa">Área (m²)</label>
+                        <input type="number" id="area-taxa" placeholder="Insira a área em m²">
+                    </div>
+                    
+                    <div class="form-group" id="div-dias-taxa" style="display: none;">
+                        <label for="dias-taxa">Número de dias do evento</label>
+                        <input type="number" id="dias-taxa" placeholder="Insira a qntd. de dias">
+                    </div>
+
+                </section>
+                
+                <button type="button" id="btn-calcular-taxa">Calcular Taxa</button>
+                
+                <div id="resultado-taxa-container" style="display: none;">
+                    <h3>Valor da Taxa</h3>
+                    <div id="resultado-taxa-valor">R$ 0,00</div>
+                </div>
+            </form>
+        </div>
+        <div id="aba-info" class="aba-conteudo">
+            <section>
+                <h2>NT's e Informações para copiar</h2>
+                <p style="margin-bottom: 20px;">Clique em uma opção abaixo para expandir e ver o conteúdo.</p>
+
+                <div class="accordion-item">
+                    <button type="button" class="accordion-title">1 - Link para Normas Técnicas do CBMMA e modelos</button>
+                    <div class="accordion-content">
+                        <p>Acesse o link oficial para baixar as NTs e documentos:<br>
+                            <a href="https://cbm.ssp.ma.gov.br/unidades-bm/unidades-administrativas/dat/legislacao-tecnica-dat/" target="_blank" id="link-nt">
+                                https://cbm.ssp.ma.gov.br/unidades-bm/unidades-administrativas/dat/legislacao-tecnica-dat/
+                            </a>
+                        </p>
+                        <button type="button" class="btn-copiar" data-target-id="link-nt">Copiar Link</button>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button type="button" class="accordion-title">2 - Informações para Copiar - Documentos p/ RENOVAÇÃO DE CA</button>
+                    <div class="accordion-content">
+                        <div id="text-renovacao">
+                            <p><strong>Renovação de CA:</strong></p>
+                            <ul>
+                                <li>atestado de conformidade das instalações elétricas e SPDA conforme anexo E da parte 2 da NT 01;</li>
+                                <li>atestado de brigada de incêndio conforme anexo G e/ou anexo G.1 da parte 2 desta norma (quando for exigido);</li>
+                                <li>laudo de testes e manutenções das medidas de segurança contra incêndio e emergências exigidas para a edificação ou área de risco, descrevendo todos os itens atendidos conforme projeto aprovado com Comprovação de Responsabilidade Técnica.</li>
+                                <li>A taxa de análise.</li>
+                            </ul>
+                            <br>
+                            <p><strong>Renovação de PTS (médio risco):</strong></p>
+                            <ul>
+                                <li>Laudo de PTS com notas fiscais e fotos;</li>
+                                <li>Comprovação de Responsabilidade técnica de execução das manutenções;</li>
+                                <li>Taxa de renovação de PTS.</li>
+                            </ul>
+                        </div>
+                        <button type="button" class="btn-copiar" data-target-id="text-renovacao">Copiar Texto</button>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+        </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
