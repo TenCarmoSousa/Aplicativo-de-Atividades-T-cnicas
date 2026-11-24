@@ -4,95 +4,205 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analisador de Processos - Atividades Técnicas</title>
+
+    <!-- Fontes modernas e tecnológicas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Fundo Animado Tecnológico: Plantas Baixas, Extintores e Sistemas de Prevenção -->
+    <!-- FUNDO TECNOLÓGICO ANIMADO (SEGURANÇA CONTRA INCÊNDIO) -->
     <div class="bg-tech-scene" aria-hidden="true">
-        <div class="bg-grid-overlay"></div>
+        <!-- Grade técnica / CAD em movimento -->
+        <div class="bg-cad-grid"></div>
+
+        <!-- Brilhos radiais vermelho escuro -->
         <div class="bg-glow bg-glow-1"></div>
         <div class="bg-glow bg-glow-2"></div>
 
-        <!-- Planta Baixa Animada 1 (Superior Esquerda) -->
-        <svg class="bg-blueprint bp-1" viewBox="0 0 360 240" fill="none">
-            <rect x="20" y="20" width="320" height="200" stroke="currentColor" stroke-width="2"/>
-            <line x1="140" y1="20" x2="140" y2="125" stroke="currentColor" stroke-width="1.5"/>
-            <line x1="140" y1="165" x2="140" y2="220" stroke="currentColor" stroke-width="1.5"/>
-            <line x1="140" y1="120" x2="340" y2="120" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M140 125 A40 40 0 0 1 175 160" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/>
-            <rect x="45" y="45" width="65" height="45" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3"/>
-            <circle class="pulse-node" cx="240" cy="70" r="6" stroke="currentColor" stroke-width="1.5"/>
-            <circle cx="240" cy="70" r="14" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 2"/>
-            <circle class="pulse-node" cx="280" cy="175" r="6" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M20 90 L50 90 M310 150 L340 150" stroke="currentColor" stroke-width="2"/>
+        <!-- Canvas para partículas / brasas tecnológicas e conexões -->
+        <canvas id="bg-particles-canvas"></canvas>
+
+        <!-- Planta Baixa Arquitetônica Animada (SVG vetorial estilo AutoCAD) -->
+        <svg class="bg-blueprint blueprint-left" viewBox="0 0 420 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g stroke="currentColor" stroke-width="1.2" opacity="0.55">
+                <!-- Paredes externas -->
+                <rect x="20" y="20" width="380" height="280" rx="2"/>
+                <rect x="26" y="26" width="368" height="268"/>
+                <!-- Divisórias internas -->
+                <line x1="160" y1="26" x2="160" y2="170"/>
+                <line x1="26" y1="170" x2="120" y2="170"/>
+                <line x1="270" y1="26" x2="270" y2="210"/>
+                <line x1="270" y1="130" x2="394" y2="130"/>
+                <line x1="160" y1="210" x2="340" y2="210"/>
+                <!-- Arcos de abertura de portas (saídas de emergência) -->
+                <path d="M120 170 A 40 40 0 0 1 160 130" stroke-dasharray="4 3"/>
+                <path d="M340 210 A 45 45 0 0 0 385 255" stroke-dasharray="4 3"/>
+                <path d="M200 294 A 36 36 0 0 1 236 258" stroke-dasharray="4 3"/>
+                <!-- Rota de fuga tracejada -->
+                <path class="blueprint-route" d="M85 95 L85 245 L218 245 L218 308" stroke-width="2" stroke-dasharray="8 6"/>
+                <!-- Símbolos técnicos na planta (Hidrante / Extintor / Alarme) -->
+                <circle cx="150" cy="60" r="8"/>
+                <line x1="144" y1="60" x2="156" y2="60"/>
+                <polygon points="282,198 294,198 288,186"/>
+                <circle cx="330" cy="78" r="10" stroke-dasharray="3 2"/>
+                <circle cx="330" cy="78" r="3"/>
+                <!-- Cotas técnicas -->
+                <line x1="20" y1="10" x2="400" y2="10" stroke-width="0.8"/>
+                <line x1="20" y1="5" x2="20" y2="15" stroke-width="0.8"/>
+                <line x1="400" y1="5" x2="400" y2="15" stroke-width="0.8"/>
+            </g>
         </svg>
 
-        <!-- Extintor & Rota de Emergência Animados 2 (Inferior Direita) -->
-        <svg class="bg-blueprint bp-2" viewBox="0 0 280 280" fill="none">
-            <circle cx="140" cy="140" r="110" stroke="currentColor" stroke-width="1" stroke-dasharray="6 6"/>
-            <circle cx="140" cy="140" r="82" stroke="currentColor" stroke-width="0.8"/>
-            <rect x="122" y="105" width="36" height="62" rx="6" stroke="currentColor" stroke-width="2"/>
-            <rect x="131" y="94" width="18" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M140 94 L162 82 M140 98 L124 88" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-            <path d="M158 116 C176 116, 178 140, 174 162" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 2"/>
-            <line x1="112" y1="167" x2="168" y2="167" stroke="currentColor" stroke-width="2"/>
-            <text x="129" y="142" fill="currentColor" font-size="11" font-family="monospace">PQS</text>
+        <svg class="bg-blueprint blueprint-right" viewBox="0 0 380 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g stroke="currentColor" stroke-width="1.2" opacity="0.5">
+                <!-- Planta isométrica de rede de hidrantes e sprinklers -->
+                <polygon points="190,25 350,105 190,185 30,105"/>
+                <polygon points="190,95 350,175 190,255 30,175" stroke-dasharray="5 4"/>
+                <line x1="190" y1="25" x2="190" y2="255"/>
+                <line x1="350" y1="105" x2="350" y2="175"/>
+                <line x1="30" y1="105" x2="30" y2="175"/>
+                <!-- Tubulação isométrica destacada -->
+                <path class="blueprint-route" d="M110 105 L190 65 L270 105 L270 165 L190 205" stroke-width="2.2" stroke-dasharray="7 5"/>
+                <circle cx="110" cy="105" r="5"/>
+                <circle cx="190" cy="65" r="5"/>
+                <circle cx="270" cy="105" r="5"/>
+                <circle cx="190" cy="205" r="6"/>
+            </g>
         </svg>
 
-        <!-- Planta Baixa / Hidrantes Animados 3 (Meio Direita) -->
-        <svg class="bg-blueprint bp-3" viewBox="0 0 320 200" fill="none">
-            <rect x="15" y="15" width="290" height="170" stroke="currentColor" stroke-width="1.6"/>
-            <line x1="15" y1="95" x2="180" y2="95" stroke="currentColor" stroke-width="1.2"/>
-            <line x1="180" y1="15" x2="180" y2="185" stroke="currentColor" stroke-width="1.2"/>
-            <rect x="198" y="35" width="84" height="50" stroke="currentColor" stroke-width="1" stroke-dasharray="4 2"/>
-            <rect x="40" y="120" width="22" height="22" stroke="currentColor" stroke-width="1.5"/>
-            <line x1="40" y1="120" x2="62" y2="142" stroke="currentColor" stroke-width="1.2"/>
-            <circle class="pulse-node" cx="180" cy="95" r="7" stroke="currentColor" stroke-width="1.6"/>
-        </svg>
+        <!-- Ícones Flutuantes de Segurança Contra Incêndio -->
+        <div class="floating-elements">
+            <!-- Extintor de Incêndio -->
+            <svg class="float-icon icon-extintor-1" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="22" y="20" width="20" height="36" rx="6"/>
+                <path d="M27 20V14H37V20"/>
+                <path d="M27 14L19 10"/>
+                <path d="M37 14H46C49 14 51 16 51 19V34"/>
+                <path d="M47 34H55L53 42H49L47 34Z"/>
+                <line x1="22" y1="30" x2="42" y2="30"/>
+                <line x1="22" y1="42" x2="42" y2="42"/>
+            </svg>
 
-        <!-- Extintor & Detecção Animados 4 (Inferior Esquerda) -->
-        <svg class="bg-blueprint bp-4" viewBox="0 0 240 220" fill="none">
-            <polygon points="120,25 205,175 35,175" stroke="currentColor" stroke-width="1.2" stroke-dasharray="5 4"/>
-            <rect x="106" y="88" width="28" height="48" rx="5" stroke="currentColor" stroke-width="1.8"/>
-            <rect x="113" y="79" width="14" height="9" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
-            <path d="M120 79 L136 70" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-            <circle class="pulse-node" cx="120" cy="155" r="5" stroke="currentColor" stroke-width="1.5"/>
-        </svg>
+            <!-- Hidrante -->
+            <svg class="float-icon icon-hidrante" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 24C22 17 26 12 32 12C38 12 42 17 42 24"/>
+                <line x1="32" y1="7" x2="32" y2="12"/>
+                <line x1="27" y1="8" x2="37" y2="8"/>
+                <rect x="20" y="24" width="24" height="28" rx="3"/>
+                <rect x="13" y="30" width="7" height="10" rx="2"/>
+                <rect x="44" y="30" width="7" height="10" rx="2"/>
+                <circle cx="32" cy="36" r="5"/>
+                <line x1="16" y1="52" x2="48" y2="52"/>
+                <line x1="14" y1="57" x2="50" y2="57"/>
+            </svg>
+
+            <!-- Sprinkler / Detector -->
+            <svg class="float-icon icon-sprinkler" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="12" x2="52" y2="12"/>
+                <rect x="26" y="12" width="12" height="8" rx="2"/>
+                <path d="M28 20L24 34H40L36 20"/>
+                <circle cx="32" cy="27" r="2.5"/>
+                <line x1="20" y1="36" x2="44" y2="36"/>
+                <path d="M24 42L18 52" stroke-dasharray="3 3"/>
+                <path d="M32 42V55" stroke-dasharray="3 3"/>
+                <path d="M40 42L46 52" stroke-dasharray="3 3"/>
+            </svg>
+
+            <!-- Escudo / Chama Preventiva -->
+            <svg class="float-icon icon-escudo" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M32 6L52 14V30C52 44 43 53 32 58C21 53 12 44 12 30V14L32 6Z"/>
+                <path d="M32 20C32 20 39 27 39 34C39 38.5 35.8 42 32 42C28.2 42 25 38.5 25 34C25 31 26.5 28.5 28 26.5C28 29 29.5 30.5 31 30.5C30 27 32 20 32 20Z"/>
+            </svg>
+
+            <!-- Segundo Extintor -->
+            <svg class="float-icon icon-extintor-2" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="22" y="20" width="20" height="36" rx="6"/>
+                <path d="M27 20V14H37V20"/>
+                <path d="M27 14L19 10"/>
+                <path d="M37 14H46C49 14 51 16 51 19V34"/>
+                <line x1="22" y1="33" x2="42" y2="33"/>
+            </svg>
+        </div>
+
+        <!-- Varredura laser sutil -->
+        <div class="bg-scanline"></div>
     </div>
 
-    <div class="app-shell">
-        <header>
-            <div class="header-badge">DAT / CBMMA • ENGENHARIA E PREVENÇÃO</div>
+    <!-- CABEÇALHO -->
+    <header class="app-header">
+        <div class="header-inner">
+            <div class="header-badge">
+                <svg class="header-emblem" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M24 4L40 10.5V23C40 33.5 33 41 24 44.5C15 41 8 33.5 8 23V10.5L24 4Z" stroke="currentColor" stroke-width="2.2" fill="rgba(220, 38, 38, 0.16)"/>
+                    <path d="M24 14C24 14 31 20.5 31 27C31 31.2 27.9 34.5 24 34.5C20.1 34.5 17 31.2 17 27C17 24.1 18.6 21.8 20.2 20C20.2 22.3 21.6 23.8 23.1 23.8C22.2 20.5 24 14 24 14Z" fill="currentColor"/>
+                </svg>
+                <span>SISTEMA TÉCNICO • SEGURANÇA CONTRA INCÊNDIO</span>
+            </div>
             <h1>Analisador de Processos de Segurança Contra Incêndio</h1>
-            <p>Ferramenta de auxílio para Atividades Técnicas</p>
+            <p class="header-subtitle">Ferramenta de auxílio para Atividades Técnicas</p>
             <p class="developer">Desenvolvido por Ten Carmo Sousa</p>
-        </header>
+        </div>
+    </header>
 
-        <nav class="container-abas" role="tablist">
-            <button type="button" id="btn-aba-analisador" class="aba active" role="tab" aria-selected="true">
-                <span class="aba-num">01</span> Analisar Processo
+    <!-- SHELL PRINCIPAL -->
+    <div class="app-shell">
+
+        <!-- NAVEGAÇÃO POR ABAS (4 ABAS) -->
+        <nav class="container-abas" role="tablist" aria-label="Funcionalidades do sistema">
+            <button type="button" id="btn-aba-analisador" class="aba active" role="tab" aria-selected="true" aria-controls="aba-analisador">
+                <svg class="aba-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 11l3 3L22 4"/>
+                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                </svg>
+                <span>Analisar Processo</span>
             </button>
-            <button type="button" id="btn-aba-calculadora" class="aba" role="tab" aria-selected="false">
-                <span class="aba-num">02</span> Calcular Taxa
+
+            <button type="button" id="btn-aba-calculadora" class="aba" role="tab" aria-selected="false" aria-controls="aba-calculadora">
+                <svg class="aba-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="4" y="2" width="16" height="20" rx="2"/>
+                    <line x1="8" y1="6" x2="16" y2="6"/>
+                    <line x1="8" y1="11" x2="8.01" y2="11"/>
+                    <line x1="12" y1="11" x2="12.01" y2="11"/>
+                    <line x1="16" y1="11" x2="16.01" y2="11"/>
+                    <line x1="8" y1="15" x2="8.01" y2="15"/>
+                    <line x1="12" y1="15" x2="12.01" y2="15"/>
+                    <line x1="16" y1="15" x2="16.01" y2="15"/>
+                </svg>
+                <span>Calcular Taxa</span>
             </button>
-            <button type="button" id="btn-aba-cnae" class="aba" role="tab" aria-selected="false">
-                <span class="aba-num">03</span> CNAE &amp; Carga (NT 14)
+
+            <button type="button" id="btn-aba-cnae" class="aba" role="tab" aria-selected="false" aria-controls="aba-cnae">
+                <svg class="aba-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2c1.5 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2 .8-3.7 2-5 0 1.8 1 2.8 2 2.8-.6-2.4 1-7.8 1-7.8z"/>
+                    <path d="M4 20h16"/>
+                </svg>
+                <span>Carga de Incêndio (NT 14)</span>
             </button>
-            <button type="button" id="btn-aba-info" class="aba" role="tab" aria-selected="false">
-                <span class="aba-num">04</span> NT's e Cópia Rápida
+
+            <button type="button" id="btn-aba-info" class="aba" role="tab" aria-selected="false" aria-controls="aba-info">
+                <svg class="aba-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                </svg>
+                <span>NT's e Informações</span>
             </button>
         </nav>
 
         <main>
-            <!-- ABA 1: ANALISADOR DE PROCESSOS -->
-            <div id="aba-analisador" class="aba-conteudo active">
+
+            <!-- ===================================================== -->
+            <!-- ABA 1: ANALISAR PROCESSO                              -->
+            <!-- ===================================================== -->
+            <div id="aba-analisador" class="aba-conteudo active" role="tabpanel">
                 <form id="form-analise">
-                    <section>
-                        <h2>Seção 1: Natureza da Regularização</h2>
+                    <section class="card-section">
+                        <h2><span class="section-tag">01</span> Natureza da Regularização</h2>
                         <div class="form-group">
                             <label for="evento-temporario">A regularização é para um Evento Temporário?</label>
                             <select id="evento-temporario" name="evento-temporario">
@@ -102,111 +212,134 @@
                         </div>
                     </section>
 
-                    <section id="secao-permanente">
-                        <h2>Seção 2: Características da Atividade</h2>
-                        <div class="form-group">
-                            <label for="tipo-atividade">Qual o tipo de atividade exercida no local?</label>
-                            <select id="tipo-atividade" name="tipo-atividade">
-                                <option value="outro">Outro tipo (Comercial, Industrial, etc.)</option>
-                                <option value="residencia-mei">Atividade em residência (MEI), sem recepção de pessoas.</option>
-                                <option value="sem-estabelecimento">Empresa sem estabelecimento físico (só domicílio fiscal).</option>
-                            </select>
-                        </div>
+                    <div id="secao-permanente">
+                        <section class="card-section">
+                            <h2><span class="section-tag">02</span> Características da Atividade</h2>
+                            <div class="form-group">
+                                <label for="tipo-atividade">Qual o tipo de atividade exercida no local?</label>
+                                <select id="tipo-atividade" name="tipo-atividade">
+                                    <option value="outro">Outro tipo (Comercial, Industrial, etc.)</option>
+                                    <option value="residencia-mei">Atividade em residência (MEI), sem recepção de pessoas.</option>
+                                    <option value="sem-estabelecimento">Empresa sem estabelecimento físico (só domicílio fiscal).</option>
+                                </select>
+                            </div>
+                        </section>
 
-                        <h2>Seção 3: Características da Edificação</h2>
-                        <div class="form-group-grid">
-                            <div class="form-group">
-                                <label for="area-total">Área total construída (m²):</label>
-                                <input type="number" id="area-total" name="area-total" placeholder="ex: 700">
+                        <section class="card-section">
+                            <h2><span class="section-tag">03</span> Características da Edificação</h2>
+                            <div class="form-group-grid">
+                                <div class="form-group">
+                                    <label for="area-total">Área total construída (m²):</label>
+                                    <input type="number" id="area-total" name="area-total" placeholder="ex: 700" min="0" step="any">
+                                </div>
+                                <div class="form-group">
+                                    <label for="altura">Altura da edificação (m):</label>
+                                    <input type="number" id="altura" name="altura" placeholder="ex: 9" min="0" step="any">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pavimentos">Nº de pavimentos:</label>
+                                    <input type="number" id="pavimentos" name="pavimentos" placeholder="ex: 2" min="0">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lotacao">Lotação máxima (pessoas):</label>
+                                    <input type="number" id="lotacao" name="lotacao" placeholder="ex: 150" min="0">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="altura">Altura da edificação (m):</label>
-                                <input type="number" id="altura" name="altura" placeholder="ex: 9">
-                            </div>
-                            <div class="form-group">
-                                <label for="pavimentos">Nº de pavimentos:</label>
-                                <input type="number" id="pavimentos" name="pavimentos" placeholder="ex: 2">
-                            </div>
-                            <div class="form-group">
-                                <label for="lotacao">Lotação máxima (pessoas):</label>
-                                <input type="number" id="lotacao" name="lotacao" placeholder="ex: 150">
-                            </div>
-                        </div>
+                        </section>
 
-                        <h2>Seção 4: Ocupação e Uso (Exclusões)</h2>
-                        <div class="form-group">
-                            <label>A edificação se enquadra em algum dos usos abaixo?</label>
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="uso-f11" name="uso-f11">
-                                <label for="uso-f11">Reunião de público (Divisão F-11, boates, etc.)</label>
-                            </div>
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="uso-hotel" name="uso-hotel">
-                                <label for="uso-hotel">Hotel, pousada, pensão ou similar</label>
-                            </div>
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="uso-hospital" name="uso-hospital">
-                                <label for="uso-hospital">Hospital ou local com pacientes que necessitam de cuidados</label>
-                            </div>
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="uso-asilo" name="uso-asilo">
-                                <label for="uso-asilo">Asilo, creche, pré-escola ou similar (idosos, crianças)</label>
-                            </div>
-                        </div>
-                        <div class="form-group" id="grupo-leitos" style="display: none;">
-                            <label for="n-leitos">Se for Hotel/Pousada, qual o nº de leitos?</label>
-                            <input type="number" id="n-leitos" name="n-leitos" placeholder="0">
-                        </div>
-
-                        <h2>Seção 5: Armazenamento e Risco Específico</h2>
-                        <div class="form-group-grid">
+                        <section class="card-section">
+                            <h2><span class="section-tag">04</span> Ocupação e Uso (Exclusões)</h2>
                             <div class="form-group">
-                                <label for="liquido-inflamavel">Líquido Inflamável (Litros):</label>
-                                <input type="number" id="liquido-inflamavel" name="liquido-inflamavel" placeholder="0">
+                                <label class="group-subtitle">A edificação se enquadra em algum dos usos abaixo?</label>
+                                <div class="checkbox-list">
+                                    <label class="checkbox-group" for="uso-f11">
+                                        <input type="checkbox" id="uso-f11" name="uso-f11">
+                                        <span>Reunião de público (Divisão F-11, boates, etc.)</span>
+                                    </label>
+                                    <label class="checkbox-group" for="uso-hotel">
+                                        <input type="checkbox" id="uso-hotel" name="uso-hotel">
+                                        <span>Hotel, pousada, pensão ou similar</span>
+                                    </label>
+                                    <label class="checkbox-group" for="uso-hospital">
+                                        <input type="checkbox" id="uso-hospital" name="uso-hospital">
+                                        <span>Hospital ou local com pacientes que necessitam de cuidados</span>
+                                    </label>
+                                    <label class="checkbox-group" for="uso-asilo">
+                                        <input type="checkbox" id="uso-asilo" name="uso-asilo">
+                                        <span>Asilo, creche, pré-escola ou similar (idosos, crianças)</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group sub-field" id="grupo-leitos" style="display: none;">
+                                <label for="n-leitos">Se for Hotel/Pousada, qual o nº de leitos?</label>
+                                <input type="number" id="n-leitos" name="n-leitos" placeholder="0" min="0">
+                            </div>
+                        </section>
+
+                        <section class="card-section">
+                            <h2><span class="section-tag">05</span> Armazenamento e Risco Específico</h2>
+                            <div class="form-group-grid">
+                                <div class="form-group">
+                                    <label for="liquido-inflamavel">Líquido Inflamável (Litros):</label>
+                                    <input type="number" id="liquido-inflamavel" name="liquido-inflamavel" placeholder="0" min="0" step="any">
+                                </div>
+                                <div class="form-group">
+                                    <label for="glp">Gás Liquefeito de Petróleo (kg):</label>
+                                    <input type="number" id="glp" name="glp" placeholder="0" min="0" step="any">
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="glp">Gás Liquefeito de Petróleo (kg):</label>
-                                <input type="number" id="glp" name="glp" placeholder="0">
+                                <div class="checkbox-list">
+                                    <label class="checkbox-group" for="revenda-glp">
+                                        <input type="checkbox" id="revenda-glp" name="revenda-glp">
+                                        <span>É uma Revenda de GLP?</span>
+                                    </label>
+                                    <label class="checkbox-group" for="outros-gases">
+                                        <input type="checkbox" id="outros-gases" name="outros-gases">
+                                        <span>Possui outros tipos de Gases Combustíveis?</span>
+                                    </label>
+                                    <label class="checkbox-group" for="produtos-perigosos">
+                                        <input type="checkbox" id="produtos-perigosos" name="produtos-perigosos">
+                                        <span>Possui Produtos Perigosos (tóxicos, explosivos, etc.)?</span>
+                                    </label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="revenda-glp" name="revenda-glp">
-                                <label for="revenda-glp">É uma Revenda de GLP?</label>
-                            </div>
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="outros-gases" name="outros-gases">
-                                <label for="outros-gases">Possui outros tipos de Gases Combustíveis?</label>
-                            </div>
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="produtos-perigosos" name="produtos-perigosos">
-                                <label for="produtos-perigosos">Possui Produtos Perigosos (tóxicos, explosivos, etc.)?</label>
-                            </div>
-                        </div>
+                        </section>
 
-                        <h2>Seção 6: Critérios Técnicionais Adicionais</h2>
-                        <div class="form-group">
-                            <label>Marque "Sim" se algum dos critérios abaixo se aplicar:</label>
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="subsolo-distinto" name="subsolo-distinto">
-                                <label for="subsolo-distinto">Subsolo com uso distinto de estacionamento</label>
+                        <section class="card-section">
+                            <h2><span class="section-tag">06</span> Critérios Técnicos Adicionais</h2>
+                            <div class="form-group">
+                                <label class="group-subtitle">Marque se algum dos critérios abaixo se aplicar:</label>
+                                <div class="checkbox-list">
+                                    <label class="checkbox-group" for="subsolo-distinto">
+                                        <input type="checkbox" id="subsolo-distinto" name="subsolo-distinto">
+                                        <span>Subsolo com uso distinto de estacionamento</span>
+                                    </label>
+                                    <label class="checkbox-group" for="carga-incendio">
+                                        <input type="checkbox" id="carga-incendio" name="carga-incendio">
+                                        <span>Carga de incêndio superior a 1.200 MJ/m²</span>
+                                    </label>
+                                    <label class="checkbox-group" for="sistemas-fixos">
+                                        <input type="checkbox" id="sistemas-fixos" name="sistemas-fixos">
+                                        <span>Necessita de sistemas fixos (Hidrantes, Sprinklers, Alarme)</span>
+                                    </label>
+                                    <label class="checkbox-group" for="isolamento">
+                                        <input type="checkbox" id="isolamento" name="isolamento">
+                                        <span>Necessita de comprovação de isolamento de risco</span>
+                                    </label>
+                                </div>
                             </div>
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="carga-incendio" name="carga-incendio">
-                                <label for="carga-incendio">Carga de incêndio superior a 1.200 MJ/m²</label>
-                            </div>
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="sistemas-fixos" name="sistemas-fixos">
-                                <label for="sistemas-fixos">Necessita de sistemas fixos (Hidrantes, Sprinklers, Alarme)</label>
-                            </div>
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="isolamento" name="isolamento">
-                                <label for="isolamento">Necessita de comprovação de isolamento de risco</label>
-                            </div>
-                        </div>
-                    </section>
+                        </section>
+                    </div>
 
-                    <button type="button" id="btn-analisar">Analisar Processo</button>
+                    <button type="button" id="btn-analisar" class="btn-primary">
+                        <span>Analisar Processo</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </button>
+
                     <div id="resultado-container" style="display: none;">
                         <h2>Resultado da Análise</h2>
                         <h3 id="resultado-texto"></h3>
@@ -215,11 +348,13 @@
                 </form>
             </div>
 
-            <!-- ABA 2: CALCULADORA DE TAXAS -->
-            <div id="aba-calculadora" class="aba-conteudo">
+            <!-- ===================================================== -->
+            <!-- ABA 2: CALCULADORA DE TAXAS                           -->
+            <!-- ===================================================== -->
+            <div id="aba-calculadora" class="aba-conteudo" role="tabpanel">
                 <form id="form-calculo">
-                    <section>
-                        <h2>Calculadora de Taxas</h2>
+                    <section class="card-section">
+                        <h2><span class="section-tag">R$</span> Calculadora de Taxas</h2>
 
                         <div class="form-group">
                             <label for="tipo-taxa">Selecione o Tipo de Taxa</label>
@@ -237,89 +372,181 @@
 
                         <div class="form-group" id="div-vbbm">
                             <label for="vbbm">VBBM (Valor Básico Bombeiro Militar)</label>
-                            <input type="number" id="vbbm" step="any" placeholder="Insira o valor base em R$">
+                            <input type="number" id="vbbm" placeholder="Insira o valor base em R$" min="0" step="any">
                         </div>
 
                         <div class="form-group" id="div-area-taxa" style="display: none;">
                             <label for="area-taxa">Área (m²)</label>
-                            <input type="number" id="area-taxa" step="any" placeholder="Insira a área em m²">
+                            <input type="number" id="area-taxa" placeholder="Insira a área em m²" min="0" step="any">
                         </div>
 
                         <div class="form-group" id="div-dias-taxa" style="display: none;">
                             <label for="dias-taxa">Número de dias do evento</label>
-                            <input type="number" id="dias-taxa" placeholder="Insira a qntd. de dias">
+                            <input type="number" id="dias-taxa" placeholder="Insira a qntd. de dias" min="1">
                         </div>
                     </section>
 
-                    <button type="button" id="btn-calcular-taxa">Calcular Taxa</button>
+                    <button type="button" id="btn-calcular-taxa" class="btn-primary">
+                        <span>Calcular Taxa</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </button>
 
                     <div id="resultado-taxa-container" style="display: none;">
-                        <h3>Valor da Taxa</h3>
+                        <h3>Valor Estimado da Taxa</h3>
                         <div id="resultado-taxa-valor">R$ 0,00</div>
                     </div>
                 </form>
             </div>
 
-            <!-- ABA 3: CNAE E CARGA DE INCÊNDIO - NT 14/2021 -->
-            <div id="aba-cnae" class="aba-conteudo">
-                <section>
-                    <h2>Consulta de CNAE e Carga de Incêndio — NT 14/2021</h2>
-                    <p class="section-subtitle">
-                        Informe o <strong>CNAE principal</strong> ou a <strong>atividade exercida na edificação</strong> (caso não possua CNAE principal ou haja divergência com o exercício real). O sistema consulta o banco <code>nt14_cnae.json</code> em tempo real.
-                    </p>
+            <!-- ===================================================== -->
+            <!-- ABA 3 (NOVA E INDEPENDENTE): CARGA DE INCÊNDIO NT 14  -->
+            <!-- ===================================================== -->
+            <div id="aba-cnae" class="aba-conteudo" role="tabpanel">
+                <section class="card-section">
+                    <div class="cnae-header-row">
+                        <div>
+                            <h2><span class="section-tag">NT 14</span> Consulta de CNAE, Divisão e Carga de Incêndio</h2>
+                            <p class="section-description">
+                                Pesquise pelo <strong>CNAE principal</strong> da edificação ou digite a <strong>atividade real exercida no local</strong>
+                                (caso não possua CNAE ou exista divergência com a atividade efetivamente realizada), conforme o Anexo A da NT 14/2021 — CBMMA.
+                            </p>
+                        </div>
+                        <span id="status-base-cnae" class="base-status-pill">Carregando base NT 14...</span>
+                    </div>
 
+                    <!-- Filtro opcional por Ocupação/Uso -->
                     <div class="form-group">
-                        <label for="modo-cnae">Situação cadastral da edificação</label>
-                        <select id="modo-cnae">
-                            <option value="padrao">CNAE principal ou atividade exercida (busca unificada)</option>
-                            <option value="divergente">CNAE principal divergente da atividade realizada no local</option>
-                            <option value="sem-cnae">Edificação sem CNAE principal / atividade por similaridade</option>
+                        <label for="filtro-ocupacao-cnae">Filtrar por Grupo / Ocupação (opcional):</label>
+                        <select id="filtro-ocupacao-cnae">
+                            <option value="todos">Todas as Ocupações / Grupos</option>
+                            <option value="Residencial">Grupo A — Residencial</option>
+                            <option value="Serviço de hospedagem">Grupo B — Serviço de Hospedagem</option>
+                            <option value="Comercial">Grupo C — Comercial</option>
+                            <option value="Serviço profissional">Grupo D — Serviço Profissional</option>
+                            <option value="Educacional e cultura física">Grupo E — Educacional e Cultura Física</option>
+                            <option value="Local de reunião de público">Grupo F — Local de Reunião de Público</option>
+                            <option value="Serviço automotivo e assemelhados">Grupo G — Serviço Automotivo e Assemelhados</option>
+                            <option value="Serviço de saúde e institucional">Grupo H — Serviço de Saúde e Institucional</option>
+                            <option value="Indústria">Grupo I — Indústria</option>
+                            <option value="Depósito">Grupo J — Depósito</option>
+                            <option value="Energia">Grupo K — Energia</option>
+                            <option value="Explosivo">Grupo L — Explosivo</option>
+                            <option value="Especial">Grupo M — Especial</option>
                         </select>
                     </div>
 
-                    <div class="form-group autocomplete-wrapper">
-                        <label for="busca-cnae">CNAE ou Descrição da Atividade</label>
-                        <div class="input-icon-row">
+                    <!-- Campo unificado com Autocomplete em tempo real -->
+                    <div class="form-group cnae-search-wrapper">
+                        <label for="input-cnae-busca">CNAE principal ou descrição da atividade realizada:</label>
+                        <div class="search-input-box">
+                            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"/>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                            </svg>
                             <input
                                 type="text"
-                                id="busca-cnae"
+                                id="input-cnae-busca"
                                 autocomplete="off"
-                                placeholder="Ex: 4711-3/02, supermercado, padaria, hotel, depósito, serralheria..."
+                                placeholder="Ex: 4771-7/01, 4711302, drogaria, supermercado, oficina mecânica..."
+                                aria-autocomplete="list"
+                                aria-controls="lista-sugestoes-cnae"
                             >
-                            <button type="button" id="btn-limpar-cnae" class="btn-secundario" title="Limpar busca">Limpar</button>
+                            <button type="button" id="btn-limpar-cnae" class="btn-clear-input" title="Limpar busca" style="display: none;">&times;</button>
                         </div>
-                        <div id="sugestoes-cnae" class="autocomplete-list" style="display: none;"></div>
+
+                        <!-- Lista dinâmica de sugestões semelhantes -->
+                        <ul id="lista-sugestoes-cnae" class="autocomplete-list" role="listbox" style="display: none;"></ul>
                     </div>
 
-                    <div class="form-group" id="grupo-atividade-real" style="display: none;">
-                        <label for="atividade-real">Atividade efetivamente realizada na edificação (para comparação / similaridade)</label>
-                        <input
-                            type="text"
-                            id="atividade-real"
-                            placeholder="Ex: comércio de materiais de construção, depósito de embalagens, clínica..."
-                        >
-                    </div>
-
-                    <div class="acoes-duplas">
-                        <button type="button" id="btn-identificar-cnae">Identificar Divisão e Carga</button>
-                        <button type="button" id="btn-comparar-cnae" class="btn-outline-red">Comparar &amp; Buscar Similaridade</button>
-                    </div>
+                    <button type="button" id="btn-buscar-cnae" class="btn-primary">
+                        <span>Identificar Divisão e Carga de Incêndio</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                        </svg>
+                    </button>
                 </section>
 
-                <div id="resultado-cnae-container" style="display: none;"></div>
+                <!-- Cartão de Resultado da Consulta NT 14 -->
+                <div id="resultado-cnae-container" class="cnae-result-card" style="display: none;">
+                    <div class="cnae-result-header">
+                        <span class="cnae-result-eyebrow">ENQUADRAMENTO NORMATIVO — NT 14/2021 (ANEXO A)</span>
+                        <button type="button" id="btn-copiar-cnae" class="btn-copiar-inline">Copiar Enquadramento</button>
+                    </div>
+
+                    <h3 id="res-cnae-descricao" class="cnae-result-title"></h3>
+
+                    <!-- KPIs Principais: Divisão, Carga de Incêndio e Risco -->
+                    <div class="cnae-metrics-grid">
+                        <div class="metric-box metric-divisao">
+                            <span class="metric-label">Divisão</span>
+                            <strong id="res-cnae-divisao" class="metric-value">--</strong>
+                        </div>
+                        <div class="metric-box metric-carga">
+                            <span class="metric-label">Carga de Incêndio (qfi)</span>
+                            <strong id="res-cnae-carga" class="metric-value">--</strong>
+                        </div>
+                        <div class="metric-box metric-risco">
+                            <span class="metric-label">Classificação de Risco</span>
+                            <strong id="res-cnae-risco" class="metric-value">--</strong>
+                        </div>
+                    </div>
+
+                    <!-- Barra visual de intensidade da carga de incêndio -->
+                    <div class="risk-meter-container">
+                        <div class="risk-meter-labels">
+                            <span>Baixo (≤ 300 MJ/m²)</span>
+                            <span>Médio (301 – 1.200 MJ/m²)</span>
+                            <span>Alto (&gt; 1.200 MJ/m²)</span>
+                        </div>
+                        <div class="risk-meter-track">
+                            <div id="res-cnae-barra" class="risk-meter-fill"></div>
+                        </div>
+                    </div>
+
+                    <!-- Metadados complementares -->
+                    <div class="cnae-meta-grid">
+                        <div class="meta-item">
+                            <span class="meta-label">Código CNAE</span>
+                            <span id="res-cnae-codigo" class="meta-value mono">--</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Ocupação / Uso</span>
+                            <span id="res-cnae-ocupacao" class="meta-value">--</span>
+                        </div>
+                    </div>
+
+                    <!-- Alerta normativo dinâmico (Anexo B, Anexo C, Similaridade, > 1200 MJ/m²) -->
+                    <div id="res-cnae-alerta" class="cnae-alert-box" style="display: none;"></div>
+                </div>
+
+                <!-- Caso não haja correspondência exata ou existam múltiplos resultados aproximados -->
+                <div id="sem-resultado-cnae" class="cnae-empty-state" style="display: none;">
+                    <h3>Nenhuma correspondência exata encontrada</h3>
+                    <p>
+                        Conforme o <strong>item 5.2 da NT 14/2021</strong>, ocupações não listadas no Anexo A podem ter a carga de incêndio determinada por <strong>similaridade</strong>
+                        (admitindo-se também similaridade entre os Grupos <strong>C — Comercial</strong> e <strong>I — Indústria</strong>).
+                    </p>
+                    <p class="empty-tip">Tente buscar por uma palavra-chave mais ampla da atividade real exercida no local (ex.: <em>"vestuário"</em>, <em>"alimentos"</em>, <em>"escritório"</em>, <em>"oficina"</em>).</p>
+                </div>
             </div>
 
-            <!-- ABA 4: NT'S E INFORMAÇÕES PARA COPIAR -->
-            <div id="aba-info" class="aba-conteudo">
-                <section>
-                    <h2>NT's e Informações para copiar</h2>
-                    <p style="margin-bottom: 20px;">Clique em uma opção abaixo para expandir e ver o conteúdo.</p>
+            <!-- ===================================================== -->
+            <!-- ABA 4: NT's E INFORMAÇÕES PARA COPIAR                 -->
+            <!-- ===================================================== -->
+            <div id="aba-info" class="aba-conteudo" role="tabpanel">
+                <section class="card-section">
+                    <h2><span class="section-tag">INFO</span> NT's e Informações para copiar</h2>
+                    <p class="section-description">Clique em uma opção abaixo para expandir e copiar o conteúdo rapidamente.</p>
 
                     <div class="accordion-item">
                         <button type="button" class="accordion-title">1 - Link para Normas Técnicas do CBMMA e modelos</button>
                         <div class="accordion-content">
                             <p>Acesse o link oficial para baixar as NTs e documentos:<br>
-                                <a href="https://cbm.ssp.ma.gov.br/unidades-bm/unidades-administrativas/dat/legislacao-tecnica-dat/" target="_blank" id="link-nt">
+                                <a href="https://cbm.ssp.ma.gov.br/unidades-bm/unidades-administrativas/dat/legislacao-tecnica-dat/" target="_blank" rel="noopener noreferrer" id="link-nt">
                                     https://cbm.ssp.ma.gov.br/unidades-bm/unidades-administrativas/dat/legislacao-tecnica-dat/
                                 </a>
                             </p>
@@ -351,6 +578,7 @@
                     </div>
                 </section>
             </div>
+
         </main>
     </div>
 
